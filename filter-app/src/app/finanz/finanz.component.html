@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <h1>Finanzbuchhaltung</h1>
+  
+    <div class="form-group mb-2">
+      <label for="typeSelect" class="mr-2 font-weight-bold">Vorgangsart</label>
+      <select id="typeSelect" class="custom-select" (change)="onTypeChange($event)">
+        <option value="">All</option>
+        <option value="Transportrechnung">Transportrechnung</option>
+        <option value="Transportgutschrift">Transportgutschrift</option>
+      </select>
+    </div>
+  
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Nummer</th>
+          <th>Vorgangsart</th>
+          <th>Betreff</th>
+          <th>Kunde</th>
+          <th>Betrag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fin of finanz">
+          <td>{{ fin.nummer }}</td>
+          <td>{{ fin.vorgangsart }}</td>
+          <td>{{ fin.betreff }}</td>
+          <td>{{ fin.kunde }}</td>
+          <td>{{ fin.betrag | number: '1.2-2' }} €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
